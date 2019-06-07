@@ -1,0 +1,32 @@
+{{#if currentUser.can_see_topic_group_button}}
+  <button
+    class="btn topic-group-button"
+    title={{siteSettings.topic_group_button_title}}
+    {{action "clickButton"}}>{{siteSettings.topic_group_button_label}}</button>
+    <style>
+    .form-popup {
+    background-color: white;
+    display: none;
+    position: fixed;
+    bottom: 300px;
+    right: 500px;
+    border: 10px solid #f1f1f1;
+    z-index: 9;
+    }
+  </style>
+    <div class="form-popup" id="myForm">
+  	<form action="https://meta.discourse.org/search" class="form-container">
+    <h1>Topic-Organizer</h1>
+
+    <label for="search"><b>SEARCH</b></label>
+    <span>Search</span>&nbsp;<input id="q" name="q" type="text" placeholder="search topics, posts, users or categories"><br>
+    <input type="checkbox">Topic 1<br>
+    <input type="checkbox">Topic 2<br>
+    <input type="checkbox">Topic 3<br>
+    <input type="checkbox">Topic 4<br>
+
+    <button type="submit" class="btn submit" >OK</button>
+    <button type="button" class="btn cancel" {{action "closeForm"}}>Close</button>
+  </form>
+</div>
+{{/if}}
